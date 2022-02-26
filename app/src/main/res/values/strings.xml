@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FinalProjectNavTest</string>
+    <string name="title_home">Calendar</string>
+    <string name="title_dashboard">New Note</string>
+    <string name="title_notifications">Categories</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
