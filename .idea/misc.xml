@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/IT-Planner/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/IT-Planner/app/src/main/res/layout/activity_note_adapter.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/IT-Planner/app/src/main/res/layout/fragment_addnote.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/IT-Planner/app/src/main/res/layout/fragment_calendar.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/IT-Planner/app/src/main/res/layout/fragment_category.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/IT-Planner/app/src/main/res/layout/note_cell.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_addnote.xml" value="0.16354166666666667" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_test_note.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_addnote.xml" value="0.20520833333333333" />

@@ -73,7 +73,7 @@ public class AddNoteFragment extends Fragment {
             public void onChanged(ArrayList arrayList) {
 
 
-                NoteAdapter noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayList);
+                NoteAdapter noteAdapter = new NoteAdapter(requireActivity().getApplicationContext(), arrayList);
                 lw.setAdapter(noteAdapter);
             }
         });
@@ -90,7 +90,7 @@ public class AddNoteFragment extends Fragment {
     void setAdapter() {
         try {
             lw = v.findViewById(R.id.listViewForNotes);
-            NoteAdapter noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), Note.noteList);
+            NoteAdapter noteAdapter = new NoteAdapter(requireActivity().getApplicationContext(), Note.noteList);
             lw.setAdapter(noteAdapter);
         }
         catch (NullPointerException e){
