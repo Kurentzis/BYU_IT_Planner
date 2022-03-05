@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.32447916666666665" />
+        <entry key="..\:/IT-Planner/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_test_note.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_addnote.xml" value="0.33" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_calendar.xml" value="0.36666666666666664" />
