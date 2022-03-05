@@ -1,10 +1,13 @@
 package com.example.finalprojectnavtest.ui.AddNote;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -14,6 +17,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviderKt;
 
+import com.example.finalprojectnavtest.MainActivity;
 import com.example.finalprojectnavtest.R;
 import com.example.finalprojectnavtest.databinding.FragmentAddnoteBinding;
 
@@ -30,6 +34,7 @@ public class AddNoteFragment extends Fragment {
     private View v;
 
     private AddNoteViewModel addNoteViewModel;
+    private NoteAdapter noteAdapter;
 
 
 
@@ -42,6 +47,8 @@ public class AddNoteFragment extends Fragment {
         lw = v.findViewById(R.id.listViewForNotes);
         Button button =  v.findViewById(R.id.buttonAddNote);
         addNoteViewModel = new ViewModelProvider(requireActivity()).get(AddNoteViewModel.class);
+
+
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -58,10 +65,6 @@ public class AddNoteFragment extends Fragment {
 
 
 
-
-
-
-
         return v;
 
 
@@ -72,30 +75,29 @@ public class AddNoteFragment extends Fragment {
             @Override
             public void onChanged(ArrayList arrayList) {
 
-
-                NoteAdapter noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayList);
+                noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayList);
                 lw.setAdapter(noteAdapter);
+
+                lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        AlertDialog.Builder adb = new AlertDialog.Builder(getContext());
+                        adb.setTitle("Delete?");
+                        adb.setMessage("Are you sure you want to delete " + position);
+                        final int positionToRemove = position;
+                        adb.setNegativeButton("Cancel", null);
+                        adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                arrayList.remove(positionToRemove);
+                                noteAdapter.notifyDataSetChanged();
+                            }});
+                        adb.show();
+                    }
+                });
             }
         });
     }
 
 
 
-
-
-    void initWidgets() {
-        lw = v.findViewById(R.id.listViewForNotes);
-    }
-
-    void setAdapter() {
-        try {
-            lw = v.findViewById(R.id.listViewForNotes);
-            NoteAdapter noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), Note.noteList);
-            lw.setAdapter(noteAdapter);
-        }
-        catch (NullPointerException e){
-            Toast.makeText(getActivity().getApplicationContext(), "Your List is empty", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 }
