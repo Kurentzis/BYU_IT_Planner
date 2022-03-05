@@ -21,9 +21,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="409dp"
-        android:layout_height="354dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/tv"
+        android:hint="Please Select a Category to see the notes" />
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/title_notifications"
+        android:minHeight="48dp" />
+
+    <ListView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 </LinearLayout>

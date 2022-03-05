@@ -5,7 +5,7 @@ import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 
 public class Note {
-    public static ArrayList<Note> noteList = new ArrayList<>();
+    public static ArrayList <Note> noteList = new ArrayList<>();
 
     private int id;
     private String title;
