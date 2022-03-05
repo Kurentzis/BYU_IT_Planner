@@ -5,4 +5,5 @@
     <string name="title_notifications">Categories</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv"> Please Select a Category to see the notes </string>
 </resources>

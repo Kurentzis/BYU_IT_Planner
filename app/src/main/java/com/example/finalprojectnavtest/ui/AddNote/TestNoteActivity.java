@@ -39,7 +39,7 @@ public class TestNoteActivity extends AppCompatActivity {
         //TODO: get note id
         int id = Note.noteList.size();
 
-        //TODO: create an ins5tance of a new note and add to a list
+        //TODO: create an instance of a new note and add to a list
         Note note = new Note(id, title, description, label);
         Note.noteList.add(note);
 

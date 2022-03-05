@@ -75,7 +75,12 @@ public class AddNoteFragment extends Fragment {
             @Override
             public void onChanged(ArrayList arrayList) {
 
+
                 noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayList);
+
+
+                //NoteAdapter noteAdapter2 = new NoteAdapter(requireActivity().getApplicationContext(), arrayList);
+
                 lw.setAdapter(noteAdapter);
 
                 lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -97,7 +102,6 @@ public class AddNoteFragment extends Fragment {
             }
         });
     }
-
 
 
 }

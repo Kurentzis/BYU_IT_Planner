@@ -18,7 +18,6 @@ import java.util.Objects;
 public class AddNoteViewModel extends ViewModel {
 
     private MutableLiveData<ArrayList> mText;
-    //private ListView lw;
 
     public AddNoteViewModel() {
 
