@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddNote.TestNoteActivity"
+    android:orientation="vertical"
+    android:background="@color/darkGray">
+
+
+    <TextView
+        android:textColor="@color/teal_700"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TITLE"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:layout_marginTop="30sp"
+        android:layout_marginLeft="30sp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/placeForTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"/>
+
+    <TextView
+        android:layout_marginTop="30sp"
+        android:textColor="@color/teal_700"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CATEGORY"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30sp"/>
+
+    <TextView
+        android:textColor="@color/green"
+        android:id="@+id/placeForCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="10sp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"/>
+
+    <TextView
+        android:textColor="@color/teal_700"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:layout_marginTop="30sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30sp"/>
+
+    <TextView
+        android:id="@+id/placeForDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="10sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"/>
+
+
+
+
+</LinearLayout>

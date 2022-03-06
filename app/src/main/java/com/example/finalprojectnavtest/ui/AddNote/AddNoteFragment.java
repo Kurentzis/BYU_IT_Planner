@@ -9,32 +9,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import androidx.appcompat.view.SupportActionModeWrapper;
+import androidx.appcompat.view.SupportMenuInflater;
+import androidx.appcompat.widget.ActionBarContainer;
+import androidx.appcompat.widget.ActionBarContextView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviderKt;
-
-import com.example.finalprojectnavtest.MainActivity;
 import com.example.finalprojectnavtest.R;
 import com.example.finalprojectnavtest.databinding.FragmentAddnoteBinding;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.ArrayList;;
 import java.util.Objects;
 
 
 public class AddNoteFragment extends Fragment {
+    private static NoteAdapter noteAdapter;
     private ListView lw;
     private View v;
-
     private AddNoteViewModel addNoteViewModel;
-    private NoteAdapter noteAdapter;
+    private View noteCell;
+
+    ImageButton delete;
 
 
 
@@ -42,11 +42,16 @@ public class AddNoteFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-
         v = inflater.inflate(R.layout.fragment_addnote, container, false);
         lw = v.findViewById(R.id.listViewForNotes);
+
+
         Button button =  v.findViewById(R.id.buttonAddNote);
         addNoteViewModel = new ViewModelProvider(requireActivity()).get(AddNoteViewModel.class);
+
+
+
+
 
 
 
@@ -66,42 +71,61 @@ public class AddNoteFragment extends Fragment {
 
 
         return v;
-
-
     }
+
+
+
+
+
     public void onResume(){
         super.onResume();
         addNoteViewModel.getText().observe(getActivity(), new Observer<ArrayList>() {
             @Override
             public void onChanged(ArrayList arrayList) {
 
-
                 noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayList);
-
-
-                //NoteAdapter noteAdapter2 = new NoteAdapter(requireActivity().getApplicationContext(), arrayList);
 
                 lw.setAdapter(noteAdapter);
 
                 lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(getContext(), ObserveNote.class);
+                        intent.putExtra("title", noteAdapter.getItem(i).getTitle());
+                        intent.putExtra("label", noteAdapter.getItem(i).getLabel());
+                        intent.putExtra("description", noteAdapter.getItem(i).getDescription());
+                        startActivity(intent);
+                    }
+                });
+
+
+
+
+                lw.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                    @Override
+                    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
                         AlertDialog.Builder adb = new AlertDialog.Builder(getContext());
                         adb.setTitle("Delete?");
-                        adb.setMessage("Are you sure you want to delete " + position);
                         final int positionToRemove = position;
+                        adb.setMessage("Are you sure you want to delete " + noteAdapter.getItem(positionToRemove).getTitle());
                         adb.setNegativeButton("Cancel", null);
                         adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+                                //arrayList.get(positionToRemove);
                                 arrayList.remove(positionToRemove);
                                 noteAdapter.notifyDataSetChanged();
-                            }});
+                            }
+                        });
                         adb.show();
+                        return false;
                     }
                 });
+
+
             }
         });
     }
+
 
 
 }

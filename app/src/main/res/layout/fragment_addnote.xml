@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.AddNote.AddNoteFragment"
     android:orientation="vertical"
-    android:background="@color/darkGray">
+    android:background="@color/darkGray"
+    android:id="@+id/addNoteSection">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -45,8 +46,9 @@
  <ListView
      android:id="@+id/listViewForNotes"
      android:layout_width="match_parent"
-     android:layout_height="300dp"
-     android:background="@color/darkGray" />
+     android:layout_height="wrap_content"
+     android:background="@color/darkGray"
+     android:layout_marginBottom="20sp"/>
 
 
 
