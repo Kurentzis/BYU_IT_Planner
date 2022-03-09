@@ -1,100 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.AddNote.TestNoteActivity"
-    android:orientation="vertical">
+    android:background="@color/darkGray">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CREATE A NOTE"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20sp"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        tools:ignore="SpeakableTextPresentCheck">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonAddNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SAVE"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="end"
-            android:layout_marginHorizontal="20dp"
-            android:backgroundTint="@color/teal_700"
-            android:onClick="saveNote"
-            />
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    </androidx.appcompat.widget.Toolbar>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="20sp"
+                    android:text="CREATE NOTE"
+                    android:textColor="@color/teal_700"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
 
+                <Button
+                    android:id="@+id/buttonAddNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginHorizontal="20dp"
+                    android:backgroundTint="@color/teal_700"
+                    android:onClick="saveNote"
+                    android:text="SAVE"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar>
 
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:textColorHint="@color/white"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:helperText="What is the subject of this note?"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/teal_700">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TITLE"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="30sp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/darkGray"
+                    android:hint="Title"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Enter your title here:"
-        android:maxLines="1"
-        android:minHeight="48dp"
-        android:maxWidth="300sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LABEL"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="30sp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:textColorHint="@color/white"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:helperText="What is the subject related to? Any framework or library?"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/teal_700">
 
-    <EditText
-        android:id="@+id/label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Enter your label here:"
-        android:maxLines="1"
-        android:minHeight="48dp"
-        android:maxWidth="300sp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/label"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/darkGray"
+                    android:hint="Category"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DESCRIPTION"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="30sp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:backgroundTint="@color/teal_700"
+                android:textColorHint="@color/white"
+                app:helperText="Describe your subject"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/teal_700"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <EditText
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minLines="5"
-        android:hint="Enter your text note here:"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:maxWidth="300sp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/darkGray"
+                    android:hint="Description"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:backgroundTint="@color/teal_700"
+                android:textColorHint="@color/white"
+                app:helperText="Code example"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/teal_700"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/codeExample"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/darkGray"
+                    android:hint="Code Example"
+
+                    android:lines="10"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-</LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

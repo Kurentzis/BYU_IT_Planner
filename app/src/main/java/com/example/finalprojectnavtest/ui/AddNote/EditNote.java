@@ -13,8 +13,8 @@ import com.example.finalprojectnavtest.R;
 
 public class EditNote extends AppCompatActivity {
 
-    private EditText titleEditText, descEditText, labelText;
-    private AddNoteFragment addNoteFragment = new AddNoteFragment();
+    private EditText titleEditText, descEditText, labelText, codeText;
+    //private AddNoteFragment addNoteFragment = new AddNoteFragment();
     private int id;
 
 
@@ -32,9 +32,11 @@ public class EditNote extends AppCompatActivity {
             titleEditText = findViewById(R.id.newTitle);
             descEditText = findViewById(R.id.newDescription);
             labelText = findViewById(R.id.newLabel);
+            codeText = findViewById(R.id.newCode);
             titleEditText.setText(intent.getStringExtra("title"));
             labelText.setText(intent.getStringExtra("label"));
             descEditText.setText(intent.getStringExtra("description"));
+            codeText.setText(intent.getStringExtra("code"));
             id = intent.getIntExtra("id", 0);
         }
         else{
@@ -50,6 +52,7 @@ public class EditNote extends AppCompatActivity {
         String title= titleEditText.getText().toString().trim();
         String description =  descEditText.getText().toString().trim();
         String label =  labelText.getText().toString().trim();
+        String code = codeText.getText().toString().trim();
         int newId = id;
 
 
@@ -58,7 +61,7 @@ public class EditNote extends AppCompatActivity {
 
         //TODO: create an instance of a new note and add to a list
 
-        Note note = new Note(newId, title, description, label);
+        Note note = new Note(newId, title, description, label, code);
 
         //Note.noteList.add(note);
 

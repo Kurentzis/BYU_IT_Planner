@@ -11,12 +11,14 @@ public class Note {
     private String title;
     private String description;
     private String label;
+    private String code;
 
-    public Note(int id, String title, String description, String label) {
+    public Note(int id, String title, String description, String label, String code) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.label = label;
+        this.code = code;
     }
 
     public int getId() {
@@ -49,5 +51,13 @@ public class Note {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String label) {
+        this.code = code;
     }
 }

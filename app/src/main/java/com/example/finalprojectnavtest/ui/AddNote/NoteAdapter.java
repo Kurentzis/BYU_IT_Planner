@@ -85,6 +85,7 @@ public class NoteAdapter extends ArrayAdapter<Note> {
                 intent.putExtra("label", note.getLabel());
                 intent.putExtra("description", note.getDescription());
                 intent.putExtra("id", note.getId());
+                intent.putExtra("code", note.getCode());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getContext().getApplicationContext().startActivity(intent);
 

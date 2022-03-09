@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.2484375" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.32447916666666665" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.346875" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_delete_manager.xml" value="0.23489583333333333" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_edit_note.xml" value="0.2046875" />
+        <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_observe_note.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_test_note.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_test_note.xml" value="0.2713068181818182" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_addnote.xml" value="0.33" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_calendar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_category.xml" value="0.2865671641791045" />

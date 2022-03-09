@@ -51,11 +51,6 @@ public class AddNoteFragment extends Fragment {
 
 
 
-
-
-
-
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,17 +82,6 @@ public class AddNoteFragment extends Fragment {
 
                 lw.setAdapter(noteAdapter);
 
-                lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(getContext(), ObserveNote.class);
-                        intent.putExtra("title", noteAdapter.getItem(i).getTitle());
-                        intent.putExtra("label", noteAdapter.getItem(i).getLabel());
-                        intent.putExtra("description", noteAdapter.getItem(i).getDescription());
-                        startActivity(intent);
-                    }
-                });
-
 
 
 
@@ -117,7 +101,20 @@ public class AddNoteFragment extends Fragment {
                             }
                         });
                         adb.show();
-                        return false;
+                        return true;
+                    }
+                });
+
+                lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(getContext(), ObserveNote.class);
+                        intent.putExtra("title", noteAdapter.getItem(i).getTitle());
+                        intent.putExtra("label", noteAdapter.getItem(i).getLabel());
+                        intent.putExtra("description", noteAdapter.getItem(i).getDescription());
+                        intent.putExtra("code", noteAdapter.getItem(i).getCode());
+                        intent.putExtra("id", i);
+                        startActivity(intent);
                     }
                 });
 

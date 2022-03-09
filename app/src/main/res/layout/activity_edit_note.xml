@@ -1,96 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.AddNote.EditNote"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/darkGray">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        tools:ignore="SpeakableTextPresentCheck">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EDIT NOTE"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/buttonChangeNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SAVE CHANGES"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="end"
-            android:layout_marginHorizontal="20dp"
-            android:backgroundTint="@color/teal_700"
-            android:onClick="saveChanges"
-            />
-
-    </androidx.appcompat.widget.Toolbar>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="20sp"
+                    android:text="EDIT NOTE"
+                    android:textColor="@color/teal_700"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
 
+                <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginHorizontal="20dp"
+                    android:backgroundTint="@color/teal_700"
+                    android:onClick="saveChanges"
+                    android:text="SAVE CHANGES"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:helperText="What is the subject of this note?"
+                app:helperTextEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                android:textColorHint="@color/white"
+                app:helperTextTextColor="@color/teal_700"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/darkGray"
+                    android:textColor="@color/white"
+                    android:hint="Title"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:helperText="What is the subject related to? Any framework, library, or programming language?"
+                app:helperTextEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                android:textColorHint="@color/white"
+                app:helperTextTextColor="@color/teal_700"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Category"
+                    android:background="@color/darkGray"
+                    android:textColor="@color/white"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:helperText="Describe your subject"
+                app:helperTextEnabled="true"
+                android:textColorHint="@color/white"
+                app:helperTextTextColor="@color/teal_700"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Description"
+                    android:background="@color/darkGray"
+                    android:textColor="@color/white"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:helperText="Describe your subject"
+                app:helperTextEnabled="true"
+                android:textColorHint="@color/white"
+                app:helperTextTextColor="@color/teal_700"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Code"
+                    android:background="@color/darkGray"
+                    android:textColor="@color/white"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEW TITLE"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="30sp"/>
-
-    <EditText
-        android:id="@+id/newTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Enter your title here:"
-        android:maxLines="1"
-        android:minHeight="48dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEW LABEL"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="30sp"/>
-
-    <EditText
-        android:id="@+id/newLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Enter your label here:"
-        android:maxLines="1"
-        android:minHeight="48dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEW DESCRIPTION"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="30sp"/>
-
-    <EditText
-        android:id="@+id/newDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minLines="5"
-        android:hint="Enter your title here:"
-        android:layout_gravity="center"/>
-
-
-</LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
