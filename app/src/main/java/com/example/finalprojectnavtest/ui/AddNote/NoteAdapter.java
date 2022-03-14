@@ -90,19 +90,6 @@ public class NoteAdapter extends ArrayAdapter<Note> {
                 getContext().getApplicationContext().startActivity(intent);
 
 
-/*
-                AlertDialog.Builder adb = new AlertDialog.Builder(NoteAdapter.this.getContext());
-                adb.setTitle("Delete?");
-                adb.setMessage("Are you sure you want to delete ");
-                adb.setNegativeButton("Cancel", null);
-                adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        NoteAdapter.super.remove(note);
-                        NoteAdapter.super.notifyDataSetChanged();
-                    }});
-
- */
-
 
 
 
@@ -115,26 +102,7 @@ public class NoteAdapter extends ArrayAdapter<Note> {
 
 
     }
-    /* public void deleteElement(View view) {
-         AlertDialog.Builder adb = new AlertDialog.Builder(getContext());
-         adb.setTitle("Delete?");
-         int position = noteAdapter.getPosition();
-         adb.setMessage("Are you sure you want to delete ");
-         final int positionToRemove = position;
-         adb.setNegativeButton("Cancel", null);
-         adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
-             public void onClick(DialogInterface dialog, int which) {
-                 //Note.noteList.remove(positionToRemove);
-                 noteAdapter.remove(note);
-                 noteAdapter.notifyDataSetChanged();
-             }});
-         adb.show();
-     }
-*/
 
-    public int getPosition() {
-        return pos;
-    }
 
 
 }

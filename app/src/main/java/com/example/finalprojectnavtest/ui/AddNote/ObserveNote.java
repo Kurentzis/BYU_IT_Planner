@@ -1,6 +1,7 @@
 package com.example.finalprojectnavtest.ui.AddNote;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,7 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.finalprojectnavtest.App;
 import com.example.finalprojectnavtest.R;
+
+import java.util.List;
 
 public class ObserveNote extends AppCompatActivity {
     private TextView title, category, description, code;
@@ -56,7 +60,10 @@ public class ObserveNote extends AppCompatActivity {
                 adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         //arrayList.get(positionToRemove);
-                        Note.noteList.remove(positionToRemove);
+                        //Note.noteList.remove(positionToRemove);
+                        List<Note> noteList = App.getInstance().getNoteDao().getAll();
+
+                        App.getInstance().getNoteDao().delete(noteList.get(positionToRemove));
                         finish();
                     }
                 });

@@ -9,21 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
-import androidx.appcompat.view.SupportActionModeWrapper;
-import androidx.appcompat.view.SupportMenuInflater;
-import androidx.appcompat.widget.ActionBarContainer;
-import androidx.appcompat.widget.ActionBarContextView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.room.Room;
+
+import com.example.finalprojectnavtest.App;
+import com.example.finalprojectnavtest.DataBase.DataBase;
 import com.example.finalprojectnavtest.R;
-import com.example.finalprojectnavtest.databinding.FragmentAddnoteBinding;
 
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -32,9 +31,9 @@ public class AddNoteFragment extends Fragment {
     private ListView lw;
     private View v;
     private AddNoteViewModel addNoteViewModel;
-    private View noteCell;
 
-    ImageButton delete;
+
+
 
 
 
@@ -54,11 +53,8 @@ public class AddNoteFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //tv.setText("SayHi!");
                 Intent intent = new Intent(getActivity(), TestNoteActivity.class);
                 AddNoteFragment.this.startActivity(intent);
-
-
             }
         });
 
@@ -71,18 +67,18 @@ public class AddNoteFragment extends Fragment {
 
 
 
-
     public void onResume(){
         super.onResume();
-        addNoteViewModel.getText().observe(getActivity(), new Observer<ArrayList>() {
+        addNoteViewModel.getText().observe(getActivity(), new Observer<List<Note>>() {
+
             @Override
-            public void onChanged(ArrayList arrayList) {
+            public void onChanged(List<Note> arrayList) {
+
 
                 noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayList);
 
+
                 lw.setAdapter(noteAdapter);
-
-
 
 
                 lw.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -96,7 +92,8 @@ public class AddNoteFragment extends Fragment {
                         adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 //arrayList.get(positionToRemove);
-                                arrayList.remove(positionToRemove);
+                                //arrayList.remove(positionToRemove);
+                                App.getInstance().getNoteDao().delete(arrayList.get(positionToRemove));
                                 noteAdapter.notifyDataSetChanged();
                             }
                         });
