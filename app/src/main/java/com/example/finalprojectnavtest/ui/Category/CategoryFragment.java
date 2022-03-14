@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.finalprojectnavtest.App;
 import com.example.finalprojectnavtest.R;
 import com.example.finalprojectnavtest.ui.AddNote.Note;
 
@@ -46,7 +47,9 @@ public class CategoryFragment extends Fragment {
         List<String> descripSet = new LinkedList<>();
         List<String> titleSet = new LinkedList<>();
 
-        for (Note note: Note.noteList) {
+        List<Note> noteList = App.getInstance().getNoteDao().getAll();
+
+        for (Note note: noteList) {
             labelSet.add(note.getLabel());
         }
 
@@ -65,7 +68,7 @@ public class CategoryFragment extends Fragment {
                 String selected = adapterView.getItemAtPosition(i).toString();
 
                 //For to collect the Title and Description
-                for (Note note: Note.noteList) {
+                for (Note note: noteList) {
                     if (selected.equals(note.getLabel())) {
                         descripSet.add(note.getDescription());
                         titleSet.add(note.getTitle());
