@@ -26,8 +26,6 @@ import java.util.Set;
 
 public class CategoryFragment extends Fragment {
 
-
-    private TextView tv;
     private Spinner spinner;
     private ListView note_list;
     private List<Note> noteList;
