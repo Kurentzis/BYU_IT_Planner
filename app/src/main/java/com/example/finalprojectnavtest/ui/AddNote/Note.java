@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @Entity
 public class Note implements Parcelable {
-    public static ArrayList <Note> noteList = new ArrayList<>();
+    //public static ArrayList <Note> noteList = new ArrayList<>();
 
     @PrimaryKey
     private int id;

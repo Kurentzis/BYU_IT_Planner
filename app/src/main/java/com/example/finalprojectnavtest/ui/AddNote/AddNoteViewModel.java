@@ -23,7 +23,7 @@ public class AddNoteViewModel extends ViewModel {
 
 
         mText = new MutableLiveData<>();
-        mText.setValue(Note.noteList);
+       // mText.setValue(Note.noteList);
     }
 
     //public LiveData<ArrayList> getText() {

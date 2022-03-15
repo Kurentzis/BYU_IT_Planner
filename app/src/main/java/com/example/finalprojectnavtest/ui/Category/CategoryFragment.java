@@ -30,6 +30,7 @@ public class CategoryFragment extends Fragment {
     private TextView tv;
     private Spinner spinner;
     private ListView note_list;
+    private List<Note> noteList;
 
 
 
@@ -47,7 +48,7 @@ public class CategoryFragment extends Fragment {
         //List<String> titleSet = new LinkedList<>();
         Set<String> descrptSet = new HashSet<>();
 
-        List<Note> noteList = App.getInstance().getNoteDao().getAll();
+       noteList  = App.getInstance().getNoteDao().getAll();
 
         for (Note note: noteList) {
             labelSet.add(note.getLabel());
@@ -72,7 +73,7 @@ public class CategoryFragment extends Fragment {
                 //For to collect the label and description into the new Class
                 //If it's the same label and description it's going to be in.
                 NotesFragmentCategory.notes_frag.clear();
-                for (Note note: Note.noteList) {
+                for (Note note: noteList) {
                     for (String d: descrptSet) {
                         if (selected.equals(note.getLabel()) && d.equals(note.getDescription())) {
                             NotesFragmentCategory note_frag = new NotesFragmentCategory(note.getTitle(), note.getDescription(), note.getLabel(), note.getId());

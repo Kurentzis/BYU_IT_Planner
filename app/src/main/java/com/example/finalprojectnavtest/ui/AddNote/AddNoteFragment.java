@@ -69,7 +69,7 @@ public class AddNoteFragment extends Fragment {
 
     public void onResume(){
         super.onResume();
-        addNoteViewModel.getText().observe(getActivity(), new Observer<List<Note>>() {
+        addNoteViewModel.getText().observe(Objects.requireNonNull(getActivity()), new Observer<List<Note>>() {
 
             @Override
             public void onChanged(List<Note> arrayList) {
@@ -94,7 +94,7 @@ public class AddNoteFragment extends Fragment {
                                 //arrayList.get(positionToRemove);
                                 //arrayList.remove(positionToRemove);
                                 App.getInstance().getNoteDao().delete(arrayList.get(positionToRemove));
-                                noteAdapter.notifyDataSetChanged();
+                                //noteAdapter.notifyDataSetChanged();
                             }
                         });
                         adb.show();
