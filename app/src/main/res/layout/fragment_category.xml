@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/tv"
-        android:hint="Please Select a Category to see the notes" />
+        android:hint="Please Select a Category to see the notes"
+        android:textSize="24sp" />
 
 
     <Spinner
