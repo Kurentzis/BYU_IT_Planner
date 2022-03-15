@@ -60,14 +60,14 @@
                 app:counterMaxLength="20"
                 app:helperText="What is the subject of this note?"
                 app:helperTextEnabled="true"
-                app:helperTextTextColor="@color/teal_700">
+                app:helperTextTextColor="@color/teal_700"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/darkGray"
-                    android:hint="Title"
+                    android:hint="Enter title..."
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,8 +87,7 @@
                     android:id="@+id/label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/darkGray"
-                    android:hint="Category"
+                    android:hint="Enter category..."
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,8 +106,7 @@
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/darkGray"
-                    android:hint="Description"
+                    android:hint="Enter description..."
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,7 +116,7 @@
                 android:layout_marginTop="30sp"
                 android:backgroundTint="@color/teal_700"
                 android:textColorHint="@color/white"
-                app:helperText="Code example"
+                app:helperText="Attention: to paste code use you buffer panel to keep code formatting! "
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/teal_700"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -127,8 +125,7 @@
                     android:id="@+id/codeExample"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/darkGray"
-                    android:hint="Code Example"
+                    android:hint="Type in code example or pseudo-code..."
 
                     android:lines="10"
                     android:textColor="@color/white" />

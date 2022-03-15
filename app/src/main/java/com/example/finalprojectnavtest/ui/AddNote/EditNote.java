@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.finalprojectnavtest.App;
 import com.example.finalprojectnavtest.R;
 
 public class EditNote extends AppCompatActivity {
@@ -62,10 +63,11 @@ public class EditNote extends AppCompatActivity {
         //TODO: create an instance of a new note and add to a list
 
         Note note = new Note(newId, title, description, label, code);
+        App.getInstance().getNoteDao().update(note);
 
         //Note.noteList.add(note);
 
-        Note.noteList.set(id, note);
+        //Note.noteList.set(id, note);
 
 
 

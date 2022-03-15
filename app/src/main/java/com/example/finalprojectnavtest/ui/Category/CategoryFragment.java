@@ -6,16 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.finalprojectnavtest.App;
 import com.example.finalprojectnavtest.R;
 import com.example.finalprojectnavtest.ui.AddNote.Note;
 
@@ -27,10 +26,10 @@ import java.util.Set;
 
 public class CategoryFragment extends Fragment {
 
-
-    private TextView tv;
     private Spinner spinner;
     private ListView note_list;
+    private List<Note> noteList;
+
 
 
 
@@ -43,11 +42,15 @@ public class CategoryFragment extends Fragment {
         note_list = view.findViewById(R.id.tv_result);
 
         Set<String> labelSet = new HashSet<>();
-        List<String> descripSet = new LinkedList<>();
-        List<String> titleSet = new LinkedList<>();
+        //List<String> descripSet = new LinkedList<>();
+        //List<String> titleSet = new LinkedList<>();
+        Set<String> descrptSet = new HashSet<>();
 
-        for (Note note: Note.noteList) {
+       noteList  = App.getInstance().getNoteDao().getAll();
+
+        for (Note note: noteList) {
             labelSet.add(note.getLabel());
+            descrptSet.add(note.getDescription());
         }
 
         String [] labeArray = labelSet.toArray(new String[0]);
@@ -64,28 +67,26 @@ public class CategoryFragment extends Fragment {
                 //Toast.makeText(getContext().getApplicationContext(), "Seleccionado " + adapterView.getItemAtPosition(i), Toast.LENGTH_LONG).show();
                 String selected = adapterView.getItemAtPosition(i).toString();
 
-                //For to collect the Title and Description
-                for (Note note: Note.noteList) {
-                    if (selected.equals(note.getLabel())) {
-                        descripSet.add(note.getDescription());
-                        titleSet.add(note.getTitle());
+
+                //For to collect the label and description into the new Class
+                //If it's the same label and description it's going to be in.
+                NotesFragmentCategory.notes_frag.clear();
+                for (Note note: noteList) {
+                    for (String d: descrptSet) {
+                        if (selected.equals(note.getLabel()) && d.equals(note.getDescription())) {
+                            NotesFragmentCategory note_frag = new NotesFragmentCategory(note.getTitle(), note.getDescription(), note.getLabel(), note.getId());
+                            NotesFragmentCategory.notes_frag.add(note_frag);
+                            //Toast.makeText(getContext().getApplicationContext(), "Dentro del if" + note_frag.hashCode(), Toast.LENGTH_LONG).show();
+                        }
+
                     }
                 }
-                //List to save the notes collected
-                List<String> notes = new LinkedList<>();
+                //Sending values to the Adapter Listview
+                CategoryAdapter adapterlist = new CategoryAdapter(getContext(), R.layout.note_cell, NotesFragmentCategory.notes_frag, selected);
 
-                ArrayAdapter<String> list = new ArrayAdapter <String> (getContext(), android.R.layout.simple_spinner_item, notes);
-                //For to collect the notes
-                for (int j = 0; j <descripSet.size() ; j++) {
-                    notes.add("Title: "+ titleSet.get(j)+ " "+ "Desciption: " +descripSet.get(j));
+                //Show the notes on ListView
+                note_list.setAdapter(adapterlist);
 
-                }
-                //Clean list of Description and Title
-                descripSet.clear();
-                titleSet.clear();
-
-                //Show the notes on View
-                note_list.setAdapter(list);
 
             }
 
