@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddNote.TestNoteActivity"
+    android:orientation="vertical"
+    android:background="@color/darkGray">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarObserve"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="20sp"
+                    android:text=""
+                    android:textColor="@color/teal_700"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/deleteButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="10sp"
+                    android:backgroundTint="@color/teal_700"
+                    android:text="DELETE" />
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <TextView
+                android:id="@+id/header1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbarObserve"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="30sp"
+                android:text="TITLE"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/placeForTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header1"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="30sp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/header2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/placeForTitle"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="30sp"
+                android:text="CATEGORY"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/placeForCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header2"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="30sp"
+                android:text=""
+                android:textColor="@color/green" />
+
+            <TextView
+                android:id="@+id/header3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/placeForCategory"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="30sp"
+                android:text="Description"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/placeForDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header3"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="30sp"
+                android:layout_marginBottom="30sp"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="true"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/header4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/placeForDescription"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="30sp"
+                android:text="Code"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/placeForCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header4"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginRight="30sp"
+                android:layout_marginBottom="30sp"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="true"
+                android:textColor="@color/white"
+                android:text=""
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.AddNote.AddNoteFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/darkGray"
+    android:id="@+id/addNoteSection">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -16,7 +18,8 @@
         <androidx.appcompat.widget.SearchView
             android:layout_width="130sp"
             android:layout_height="wrap_content"
-            app:queryHint="Search"/>
+            app:queryHint="Search"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,7 +28,8 @@
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginHorizontal="20sp"/>
+            android:layout_marginHorizontal="20sp"
+            android:textColor="@color/teal_700"/>
 
 
         <Button
@@ -33,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_gravity="end"
@@ -44,7 +49,10 @@
  <ListView
      android:id="@+id/listViewForNotes"
      android:layout_width="match_parent"
-     android:layout_height="300dp"/>
+     android:layout_height="wrap_content"
+     android:background="@color/darkGray"
+     android:layout_marginBottom="20sp"
+     android:divider="@color/teal_700"/>
 
 
 

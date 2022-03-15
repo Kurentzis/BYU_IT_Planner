@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.finalprojectnavtest.App;
 import com.example.finalprojectnavtest.R;
 import com.example.finalprojectnavtest.ui.AddNote.Note;
 
@@ -46,7 +47,9 @@ public class CategoryFragment extends Fragment {
         //List<String> titleSet = new LinkedList<>();
         Set<String> descrptSet = new HashSet<>();
 
-        for (Note note: Note.noteList) {
+        List<Note> noteList = App.getInstance().getNoteDao().getAll();
+
+        for (Note note: noteList) {
             labelSet.add(note.getLabel());
             descrptSet.add(note.getDescription());
         }
@@ -65,6 +68,7 @@ public class CategoryFragment extends Fragment {
                 //Toast.makeText(getContext().getApplicationContext(), "Seleccionado " + adapterView.getItemAtPosition(i), Toast.LENGTH_LONG).show();
                 String selected = adapterView.getItemAtPosition(i).toString();
 
+
                 //For to collect the label and description into the new Class
                 //If it's the same label and description it's going to be in.
                 NotesFragmentCategory.notes_frag.clear();
@@ -75,6 +79,7 @@ public class CategoryFragment extends Fragment {
                             NotesFragmentCategory.notes_frag.add(note_frag);
                             //Toast.makeText(getContext().getApplicationContext(), "Dentro del if" + note_frag.hashCode(), Toast.LENGTH_LONG).show();
                         }
+
                     }
                 }
                 //Sending values to the Adapter Listview

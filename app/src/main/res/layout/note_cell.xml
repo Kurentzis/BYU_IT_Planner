@@ -1,41 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:padding="15dp"
     android:id="@+id/note_cell"
-    android:layout_height="120dp">
+    android:layout_height="130dp"
+    android:descendantFocusability="blocksDescendants">
 
-    <TextView
-        android:id="@+id/cellLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="TextView"
-        android:layout_gravity="end" />
 
     <TextView
         android:id="@+id/cellTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Title"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="9dp"
         android:maxLines="1"
+        android:text="Title"
+        android:textColor="@color/white"
         android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/cellLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="5sp"
+        android:layout_marginBottom="80sp"
+        android:text="TextView"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/green" />
 
     <TextView
         android:id="@+id/cellDesc"
         android:layout_width="wrap_content"
+        android:maxWidth="600sp"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="14dp"
         android:maxLines="1"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/black"/>
+        android:text="Description"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:focusable="false"
+        android:background="@color/darkGray"
+        android:descendantFocusability="blocksDescendants"
+        android:id="@+id/deleteButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end"
+        android:layout_marginEnd="5sp"
+        android:layout_marginBottom="15sp"
+        android:src="@drawable/ic_baseline_edit_24"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
-
-
-</LinearLayout>
+</RelativeLayout>
