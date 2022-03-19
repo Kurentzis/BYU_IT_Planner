@@ -52,21 +52,22 @@ public class CategoryAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 
-        View v = view;
+
         LayoutInflater inflater = LayoutInflater.from(this.context);
-        v = inflater.inflate(R.layout.note_cell, null);
+        view = inflater.inflate(R.layout.note_cell, null);
 
         NotesFragmentCategory note_frag = this.notesFragmentCategories.get(position);
 
-        TextView title =v.findViewById(R.id.cellTitle);
-        TextView description = v.findViewById(R.id.cellDesc);
-        TextView label = v.findViewById(R.id.cellLabel);
+        TextView title =view.findViewById(R.id.cellTitle);
+        TextView description = view.findViewById(R.id.cellDesc);
+        TextView label = view.findViewById(R.id.cellLabel);
 
 
         title.setText(note_frag.getTitle());
         description.setText(note_frag.getDescription());
         label.setText(note_frag.getLabel());
 
-        return v;
+        return view;
     }
 }
+
