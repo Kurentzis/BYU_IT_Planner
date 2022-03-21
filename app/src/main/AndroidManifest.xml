@@ -41,6 +41,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProjectNavTest">
         <activity
+            android:name=".ui.AddNote.SearcnableActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/searchable" />
+
+        <activity
             android:name=".ui.AddNote.ObserveNote"
             android:exported="false" />
         <activity

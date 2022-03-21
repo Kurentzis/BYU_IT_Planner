@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -31,6 +32,7 @@ public class AddNoteFragment extends Fragment {
     private ListView lw;
     private View v;
     private AddNoteViewModel addNoteViewModel;
+    private SearchView sv;
 
 
 
@@ -114,6 +116,8 @@ public class AddNoteFragment extends Fragment {
                         startActivity(intent);
                     }
                 });
+
+
 
 
             }
