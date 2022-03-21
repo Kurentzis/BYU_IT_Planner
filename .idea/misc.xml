@@ -20,6 +20,12 @@
         <entry key="..\:/IT-Planner/app/src/main/res/layout/googlesignin.xml" value="0.1" />
         <entry key="..\:/IT-Planner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.33" />
         <entry key="..\:/IT-Planner/app/src/main/res/menu/example_3dot.xml" value="0.32407407407407407" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_edit_note.xml" value="0.1796875" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_note_adapter.xml" value="0.1796875" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/Planner/app/src/main/res/layout/activity_observe_note.xml" value="0.1796875" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_addnote.xml" value="0.1796875" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/Planner/app/src/main/res/layout/fragment_category.xml" value="0.1796875" />
+        <entry key="..\:/Users/HP360/AndroidStudioProjects/Planner/app/src/main/res/layout/spinner_item_categories.xml" value="0.1796875" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.2484375" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.32447916666666665" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.346875" />

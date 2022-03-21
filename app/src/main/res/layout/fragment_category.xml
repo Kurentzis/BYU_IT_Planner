@@ -28,6 +28,9 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/tv"
         android:hint="Please Select a Category to see the notes"
+        android:text="Please select a category to see the notes"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
         android:textSize="24sp" />
 
 
@@ -35,6 +38,7 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFEB3B"
         android:contentDescription="@string/title_notifications"
         android:minHeight="48dp" />
 
