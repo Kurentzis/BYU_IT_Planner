@@ -29,12 +29,15 @@
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_edit_note.xml" value="0.2046875" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_observe_note.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_search.xml" value="0.2717391304347826" />
+        <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_searcnable.xml" value="0.2717391304347826" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/activity_test_note.xml" value="0.2713068181818182" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_addnote.xml" value="0.33" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_calendar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_category.xml" value="0.2865671641791045" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/note_cell.xml" value="0.22" />
+        <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/searchable.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/layout/toolbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
         <entry key="..\:/Users/Kurentzis/AndroidStudioProjects/ITPlanner/app/src/main/res/menu/drawer_view.xml" value="0.36666666666666664" />

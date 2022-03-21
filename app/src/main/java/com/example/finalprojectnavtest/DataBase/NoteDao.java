@@ -23,7 +23,7 @@ public interface NoteDao {
     @Query("SELECT * FROM note WHERE id IN(:noteIds)")
     List<Note> loadAllByIds(int[] noteIds);
 
-    @Query("SELECT * FROM note WHERE title LIKE :title AND " + "label LIKE :label AND "+
+    @Query("SELECT * FROM note WHERE title MATCH :title AND " + "label LIKE :label AND "+
             "description LIKE :description AND " + "code LIKE :code")
     Note findByTitle(String title, String label, String description, String code);
 
