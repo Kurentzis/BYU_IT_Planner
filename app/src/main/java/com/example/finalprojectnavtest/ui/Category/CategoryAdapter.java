@@ -1,6 +1,5 @@
 package com.example.finalprojectnavtest.ui.Category;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.finalprojectnavtest.R;
-import com.example.finalprojectnavtest.ui.AddNote.Note;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class CategoryAdapter extends BaseAdapter {
 
@@ -70,4 +65,3 @@ public class CategoryAdapter extends BaseAdapter {
         return view;
     }
 }
-

@@ -8,8 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,7 +17,6 @@ import com.example.finalprojectnavtest.R;
 import com.example.finalprojectnavtest.ui.AddNote.Note;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -46,7 +43,7 @@ public class CategoryFragment extends Fragment {
         //List<String> titleSet = new LinkedList<>();
         Set<String> descrptSet = new HashSet<>();
 
-       noteList  = App.getInstance().getNoteDao().getAll();
+        noteList  = App.getInstance().getNoteDao().getAll();
 
         for (Note note: noteList) {
             labelSet.add(note.getLabel());
