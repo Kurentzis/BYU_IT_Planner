@@ -15,16 +15,16 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Room;
 
 import com.example.finalprojectnavtest.App;
-import com.example.finalprojectnavtest.DataBase.DataBase;
 import com.example.finalprojectnavtest.R;
 
 import org.jetbrains.annotations.NotNull;
-import java.util.ArrayList;;
+
 import java.util.List;
 import java.util.Objects;
+
+;
 
 
 public class AddNoteFragment extends Fragment {
@@ -71,13 +71,13 @@ public class AddNoteFragment extends Fragment {
 
     public void onResume(){
         super.onResume();
-        addNoteViewModel.getText().observe(Objects.requireNonNull(getActivity()), new Observer<List<Note>>() {
+        addNoteViewModel.getText().observe(Objects.requireNonNull(this), new Observer<List<Note>>() {
 
             @Override
             public void onChanged(List<Note> arrayList) {
 
 
-                noteAdapter = new NoteAdapter(Objects.requireNonNull(getActivity()).getApplicationContext(), arrayList);
+                noteAdapter = new NoteAdapter(Objects.requireNonNull(getContext()).getApplicationContext(), arrayList);
 
 
                 lw.setAdapter(noteAdapter);

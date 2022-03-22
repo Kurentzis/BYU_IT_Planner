@@ -1,8 +1,5 @@
 package com.example.finalprojectnavtest.ui.AddNote;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,8 +7,9 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalprojectnavtest.App;
 import com.example.finalprojectnavtest.R;
@@ -41,8 +39,13 @@ public class ObserveNote extends AppCompatActivity {
         String d = intent.getStringExtra("description") ;
         String co = intent.getStringExtra("code");
         id = intent.getIntExtra("id",0);
+        boolean del = intent.getBooleanExtra("del", false);
         description.setMovementMethod(new ScrollingMovementMethod());
         code.setMovementMethod(new ScrollingMovementMethod());
+
+        if (del){
+            delete.setVisibility(View.GONE);
+        }
 
         title.setText(t);
         category.setText(c);

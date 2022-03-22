@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.example.finalprojectnavtest.R;
 
 import java.util.ArrayList;
@@ -43,19 +45,20 @@ public class CategoryAdapter extends BaseAdapter {
         return id;
     }
 
-
+    @NonNull
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 
 
         LayoutInflater inflater = LayoutInflater.from(this.context);
-        view = inflater.inflate(R.layout.note_cell, null);
+        //view = inflater.inflate(R.layout.note_cell,  null);
+        view = LayoutInflater.from(inflater.getContext()).inflate(R.layout.note_cell2, viewGroup, false);
 
         NotesFragmentCategory note_frag = this.notesFragmentCategories.get(position);
 
-        TextView title =view.findViewById(R.id.cellTitle);
-        TextView description = view.findViewById(R.id.cellDesc);
-        TextView label = view.findViewById(R.id.cellLabel);
+        TextView title =view.findViewById(R.id.cellTitle2);
+        TextView description = view.findViewById(R.id.cellDesc2);
+        TextView label = view.findViewById(R.id.cellLabel2);
 
 
         title.setText(note_frag.getTitle());
