@@ -55,7 +55,7 @@ public class CategoryFragment extends Fragment {
 
         String [] labeArray = labelSet.toArray(new String[0]);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter <String> (getContext(), android.R.layout.simple_spinner_item, labeArray);
+        ArrayAdapter<String> adapter = new ArrayAdapter <String> (getContext(), R.layout.spinner_item_categories, labeArray);
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
