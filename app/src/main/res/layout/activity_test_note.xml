@@ -105,8 +105,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/description"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="Enter description..."
+                    android:minLines="3"
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,6 +117,7 @@
                 android:layout_marginTop="30sp"
                 android:backgroundTint="@color/teal_700"
                 android:textColorHint="@color/white"
+
                 app:helperText="Attention: to paste code use you buffer panel to keep code formatting! "
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/teal_700"
