@@ -64,7 +64,14 @@ dependencies {
     implementation 'com.applandeo:material-calendar-view:1.7.0'
 
 
+    def activity_version = "1.4.0"
 
+    // Java language implementation
+    implementation "androidx.activity:activity:$activity_version"
+    def fragment_version = "1.4.1"
+
+    // Java language implementation
+    implementation "androidx.fragment:fragment:$fragment_version"
 
     def room_version = "2.4.2"
 
