@@ -10,7 +10,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -136,9 +135,7 @@ viewNote.setOnClickListener(new View.OnClickListener() {
         //EventCollector eventCollector = new EventCollector(getContext(), eventHandler, this, mCalendarView);
         //Thread threadGetTemp = new Thread(eventCollector);
         //threadGetTemp.start();
-        Runnable r = new Runnable() {
-            @Override
-            public void run() {
+
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
@@ -192,17 +189,6 @@ viewNote.setOnClickListener(new View.OnClickListener() {
                         Toast.makeText(getContext(), "No events", Toast.LENGTH_LONG).show();
                     }
 
-
-
-                }
-               // eventAdapter = new EventAdapter(Objects.requireNonNull(getContext()).getApplicationContext(), eventsList);
-                //lw.setAdapter(eventAdapter);
-
-            }
-
-        };
-        Handler handler = new Handler();
-        handler.postDelayed(r, 1);
 
 
 
@@ -279,5 +265,5 @@ viewNote.setOnClickListener(new View.OnClickListener() {
             }
 
 
-}
+}}
 
