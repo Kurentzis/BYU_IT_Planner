@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.finalprojectnavtest">
+    package="com.example.BYU_IT_Planner">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES " />
 
     <queries>
 
@@ -41,18 +45,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProjectNavTest">
         <activity
+            android:name=".ui.Calendar.EventHandler"
+            android:exported="false"
+            android:label="@string/title_activity_event_handler"
+            android:theme="@style/Theme.FinalProjectNavTest.NoActionBar" />
+
+        <activity
+            android:name=".ui.Settings.LogIn"
+            android:exported="false" />
+        <activity
             android:name=".ui.AddNote.SearcnableActivity"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
-            <meta-data android:name="android.app.searchable"
-                android:resource="@xml/searchable"/>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
 
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/searchable" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.API_KEY"
+            android:value="AIzaSyA0ACfgsp_uhtWKGD2e-G-aVbSm0l3FD7Q" />
 
         <activity
             android:name=".ui.AddNote.ObserveNote"

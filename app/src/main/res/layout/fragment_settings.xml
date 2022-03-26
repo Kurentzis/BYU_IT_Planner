@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Settings.Settings">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+<com.google.android.gms.common.SignInButton
+    android:id="@+id/google_signIn_bt"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <!-- TODO: Update blank fragment layout -->
 
-</FrameLayout>
+    <Button
+        android:layout_below="@+id/google_signIn_bt"
+        android:id="@+id/google_signOut_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"/>
+
+
+    <TextView
+        android:layout_below="@+id/google_signOut_bt"
+        android:layout_marginHorizontal="50sp"
+        android:textColor="@color/teal_700"
+        android:id="@+id/resultSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

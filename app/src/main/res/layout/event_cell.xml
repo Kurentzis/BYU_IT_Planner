@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="15dp"
+    android:id="@+id/note_cell"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+
+    <TextView
+        android:id="@+id/cellTitleEvent"
+        android:layout_width="wrap_content"
+        android:maxWidth="300sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="9dp"
+        android:maxLines="1"
+        android:text="Title"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+
+    <TextView
+        android:id="@+id/cellDescEvent"
+        android:layout_width="wrap_content"
+        android:maxWidth="300sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="14dp"
+        android:maxLines="1"
+        android:text="Description"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/cellTimeEvent"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:maxLines="1"
+        android:text="Time"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
+
+    <TextView
+        android:layout_alignParentEnd="true"
+        android:id="@+id/cellLocationEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="150sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="14dp"
+        android:maxLines="1"
+        android:text="Location"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
+
+
+
+
+</RelativeLayout>

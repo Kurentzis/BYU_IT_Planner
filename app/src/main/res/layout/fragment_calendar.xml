@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Calendar.CalendarFragment">
+    tools:context=".ui.Calendar.CalendarFragment"
+    android:orientation="horizontal">
 
-    <CalendarView
+
+    <com.applandeo.materialcalendarview.CalendarView
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weekNumberColor="@color/teal_700"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        app:abbreviationsBarColor="@color/darkGray"
+        app:daysLabelsColor="@color/white"
+        app:eventsEnabled="true"
+        app:pagesColor="@color/darkGray"
+        app:highlightedDaysLabelsColor="@color/white"
+        app:headerLabelColor="@color/white"
+        app:abbreviationsLabelsColor="@color/white"
+        app:selectionLabelColor="@color/teal_700"
+        app:todayLabelColor="@color/teal_700"
+        />
+
+
+<Button
+
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="70sp"
+    android:layout_marginRight="20sp"
+    android:id="@+id/view_calendar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="VIEW AND EDIT EVENTS"/>
+
+
+
+
+
+</RelativeLayout>
