@@ -32,12 +32,13 @@ public class CategoryFragment extends Fragment {
 
     private NoteAdapter noteAdapter;
     private CategoryAdapter adapterlist;
-
+    ArrayAdapter<String> adapter;
 
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
 
 
         View view = inflater.inflate(R.layout.fragment_category, null);
@@ -49,62 +50,80 @@ public class CategoryFragment extends Fragment {
         //List<String> titleSet = new LinkedList<>();
         Set<String> descrptSet = new HashSet<>();
 
-        noteList  = App.getInstance().getNoteDao().getAll();
-
-        for (Note note: noteList) {
-            labelSet.add(note.getLabel());
-            descrptSet.add(note.getDescription());
-        }
-
-        String [] labeArray = labelSet.toArray(new String[0]);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter <String> (getContext(), android.R.layout.simple_spinner_item, labeArray);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Runnable runnable = new Runnable() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                //Toast.makeText(getContext().getApplicationContext(), "Seleccionado " + adapterView.getItemAtPosition(i), Toast.LENGTH_LONG).show();
-                String selected = adapterView.getItemAtPosition(i).toString();
+            public void run() {
+                List<Note> noteList = App.getInstance().getNoteDao().getAll();
 
-
-                //For to collect the label and description into the new Class
-                //If it's the same label and description it's going to be in.
-                NotesFragmentCategory.notes_frag.clear();
+                noteList  = App.getInstance().getNoteDao().getAll();
                 for (Note note: noteList) {
-                    for (String d: descrptSet) {
-                        if (selected.equals(note.getLabel()) && d.equals(note.getDescription())) {
-                            NotesFragmentCategory note_frag = new NotesFragmentCategory(note.getTitle(), note.getDescription(), note.getLabel(), note.getCode(), note.getId());
-                            NotesFragmentCategory.notes_frag.add(note_frag);
-                            //Toast.makeText(getContext().getApplicationContext(), "Dentro del if" + note_frag.hashCode(), Toast.LENGTH_LONG).show();
+                    labelSet.add(note.getLabel());
+                    descrptSet.add(note.getDescription());
+                }
+                String [] labeArray = labelSet.toArray(new String[0]);
+
+                adapter = new ArrayAdapter <String> (getContext(), R.layout.spinner_item, labeArray);
+// Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+
+
+                List<Note> finalNoteList = noteList;
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        //Toast.makeText(getContext().getApplicationContext(), "Seleccionado " + adapterView.getItemAtPosition(i), Toast.LENGTH_LONG).show();
+                        String selected = adapterView.getItemAtPosition(i).toString();
+
+
+                        //For to collect the label and description into the new Class
+                        //If it's the same label and description it's going to be in.
+                        NotesFragmentCategory.notes_frag.clear();
+                        for (Note note: finalNoteList) {
+                            for (String d: descrptSet) {
+                                if (selected.equals(note.getLabel()) && d.equals(note.getDescription())) {
+                                    NotesFragmentCategory note_frag = new NotesFragmentCategory(note.getTitle(), note.getDescription(), note.getLabel(), note.getCode());
+                                    NotesFragmentCategory.notes_frag.add(note_frag);
+                                    //Toast.makeText(getContext().getApplicationContext(), "Dentro del if" + note_frag.hashCode(), Toast.LENGTH_LONG).show();
+                                }
+
+                            }
                         }
+                        //Sending values to the Adapter Listview
+                        adapterlist = new CategoryAdapter(getContext(), R.layout.note_cell2, NotesFragmentCategory.notes_frag, selected);
+
+                        //Show the notes on ListView
+                        note_list.setAdapter(adapterlist);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
 
                     }
-                }
-                //Sending values to the Adapter Listview
-                adapterlist = new CategoryAdapter(getContext(), R.layout.note_cell2, NotesFragmentCategory.notes_frag, selected);
+                });
 
-                //Show the notes on ListView
-                note_list.setAdapter(adapterlist);
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+
 
             }
-        });
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+
+
 
 
 
 
         return view;
+
+
+
     }
 
     public void  onResume() {
         super.onResume();
+        spinner.setAdapter(adapter);
         note_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

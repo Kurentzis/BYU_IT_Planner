@@ -24,12 +24,15 @@ public class App extends Application {
 
         instance = this;
 
-        database = Room.databaseBuilder(getApplicationContext(),
-                DataBase.class, "App-Data-Base")
-                .allowMainThreadQueries()
+        DataBase  database = Room.databaseBuilder(getApplicationContext(),
+                DataBase.class, "App-Data-Base-2")
+
                 .build();
 
         noteDao = database.noteDao();
+
+
+
 
 
     }

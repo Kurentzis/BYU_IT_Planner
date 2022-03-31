@@ -2,6 +2,7 @@ package com.example.BYU_IT_Planner.ui.AddNote;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -12,8 +13,8 @@ import java.util.Objects;
 public class Note implements Parcelable {
     //public static ArrayList <Note> noteList = new ArrayList<>();
 
-    @PrimaryKey
-    private int id;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
     @ColumnInfo(name = "title")
     private String title;
     @ColumnInfo(name = "description")
@@ -23,7 +24,7 @@ public class Note implements Parcelable {
     @ColumnInfo(name = "code")
     private String code;
 
-    public Note(int id, String title, String description, String label, String code) {
+    public Note( String title, String description, String label, String code) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -32,7 +33,7 @@ public class Note implements Parcelable {
     }
 
     protected Note(Parcel in) {
-        id = in.readInt();
+     //   id = in.readInt();
         title = in.readString();
         description = in.readString();
         label = in.readString();
@@ -51,6 +52,14 @@ public class Note implements Parcelable {
         }
     };
 
+    public Note(long newId, String title, String description, String label, String code) {
+        this.id = newId;
+        this.title = title;
+        this.description = description;
+        this.label = label;
+        this.code = code;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,10 +70,10 @@ public class Note implements Parcelable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, label, code);
+        return Objects.hash(id);
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -111,7 +120,7 @@ public class Note implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id);
+        parcel.writeLong(id);
         parcel.writeString(title);
         parcel.writeString(description);
         parcel.writeString(label);

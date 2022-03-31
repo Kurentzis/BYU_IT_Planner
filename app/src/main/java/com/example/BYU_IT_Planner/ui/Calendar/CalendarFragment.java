@@ -36,7 +36,6 @@ import com.example.BYU_IT_Planner.R;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -49,7 +48,7 @@ public class CalendarFragment extends Fragment {
     public CalendarView mCalendarView;
     public List<EventDay> events = new ArrayList<>();
     List<Calendar> calendars = new ArrayList<>();
-    public List<Event> eventsList = new ArrayList<>();
+
 
 
     private Cursor cursor;
@@ -57,7 +56,7 @@ public class CalendarFragment extends Fragment {
     Calendar cal;
     Calendar clickedDayCalendar;
     CalendarViewModel calendarViewModel;
-    EventAdapter eventAdapter;
+
     ListView lw;
     EventHandler eventHandler;
     MainActivity mainActivity;
@@ -109,7 +108,16 @@ public class CalendarFragment extends Fragment {
                 //Toast.makeText(getContext(), clickedDayCalendar.getTime().toString(), Toast.LENGTH_SHORT).show();
             }
         });
+        if (ContextCompat.checkSelfPermission(
+                context, Manifest.permission.READ_CALENDAR) ==
+                PackageManager.PERMISSION_GRANTED) {
+            EventCollector eventCollector = new EventCollector(getContext(), eventHandler, this, mCalendarView);
+            Thread threadGetTemp = new Thread(eventCollector);
+            threadGetTemp.start();
 
+        } else {
+            requestCalPermission();
+        }
 
         viewNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,144 +143,12 @@ public class CalendarFragment extends Fragment {
         super.onResume();
 
 
-        //EventCollector eventCollector = new EventCollector(getContext(), eventHandler, this, mCalendarView);
-        //Thread threadGetTemp = new Thread(eventCollector);
-        //threadGetTemp.start();
-        // Runnable r = new Runnable() {
-        //   @Override
-        //  public void run() {
-
-        if (ContextCompat.checkSelfPermission(
-                context, Manifest.permission.READ_CALENDAR) ==
-                PackageManager.PERMISSION_GRANTED) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                cursor = context.getContentResolver().query(CalendarContract.Events.CONTENT_URI, null, null, null);
-            }
-
-            while (cursor.moveToNext()) {
-                if (cursor != null) {
-
-                    Calendar cal = Calendar.getInstance();
-
-                    int id_1 = cursor.getColumnIndex(CalendarContract.Events._ID);
-                    int id_2 = cursor.getColumnIndex(CalendarContract.Events.TITLE);
-                    int id_3 = cursor.getColumnIndex(CalendarContract.Events.DESCRIPTION);
-                    int id_4 = cursor.getColumnIndex(CalendarContract.Events.EVENT_LOCATION);
-                    int id_5 = cursor.getColumnIndex(CalendarContract.Events.DTSTART);
-                    int id_6 = cursor.getColumnIndex(CalendarContract.Events.ACCOUNT_TYPE);
-                    //int res = id_5 / (60*60*1000);
-
-
-                    String idValue = cursor.getColumnName(id_1);
-                    String titleValue = cursor.getString(id_2);
-                    String descriptionValue = cursor.getString(id_3);
-                    String eventValue = cursor.getString(id_4);
-                    String dateValue = cursor.getString(id_5);
-                    long time = cursor.getLong(id_5);
-                    Date date = new Date();
-                    date.setTime(time);
-                    date.getDate();
-                    cal.setTimeInMillis(time);
-
-
-                    events.add(new EventDay(cal, R.drawable.ic_baseline_circle_24));
-                    mCalendarView.setEvents(events);
-
-                    //Event event = new Event(idValue, titleValue, descriptionValue, eventValue, date);
-                    //eventsList.add(event);
-                    // String size = String.valueOf(eventsList.get(0).titleVal);
-                    // Toast.makeText(getContext(), size, Toast.LENGTH_SHORT).show();
-
-                    //eventAdapter = new EventAdapter(Objects.requireNonNull(getContext()).getApplicationContext(), eventsList);
-                    //lw.setAdapter(eventAdapter);
-
-
-                } else {
-                    Toast.makeText(getContext(), "No events", Toast.LENGTH_LONG).show();
-                }
-
-
-            }
-        } else {
-            requestCalPermission();
-        }
-
-        // if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-        //    ActivityCompat.requestPermissions(this.requireActivity(), new String[] {Manifest.permission.READ_CALENDAR}, getTargetRequestCode());
-
-        // }
 
 
 
 
-
-
-
-        // eventAdapter = new EventAdapter(Objects.requireNonNull(getContext()).getApplicationContext(), eventsList);
-        //lw.setAdapter(eventAdapter);
-
-        //  }
-
-        //  };
-        //  Handler handler = new Handler();
-        //  handler.postDelayed(r, 1);
-
-
-
-
-/*
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            cursor = context.getContentResolver().query(CalendarContract.Events.CONTENT_URI, null, null, null);
-        }
-        while (cursor.moveToNext()) {
-            if (cursor != null) {
-                Calendar cal = Calendar.getInstance();
-                int id_1 = cursor.getColumnIndex(CalendarContract.Events._ID);
-                int id_2 = cursor.getColumnIndex(CalendarContract.Events.TITLE);
-                int id_3 = cursor.getColumnIndex(CalendarContract.Events.DESCRIPTION);
-                int id_4 = cursor.getColumnIndex(CalendarContract.Events.EVENT_LOCATION);
-                int id_5 = cursor.getColumnIndex(CalendarContract.Events.DTSTART);
-                int id_6 = cursor.getColumnIndex(CalendarContract.Events.ACCOUNT_TYPE);
-                //int res = id_5 / (60*60*1000);
-                String idValue = cursor.getColumnName(id_1);
-                String titleValue = cursor.getString(id_2);
-                String descriptionValue = cursor.getString(id_3);
-                String eventValue = cursor.getString(id_4);
-                String dateValue = cursor.getString(id_5);
-                long time = cursor.getLong(id_5);
-                Date date = new Date();
-                date.setTime(time);
-                date.getDate();
-                cal.setTimeInMillis(time);
-                events.add(new EventDay(cal, R.drawable.ic_baseline_edit_24));
-                mCalendarView.setEvents(events);
-                Event event = new Event(idValue, titleValue, descriptionValue, eventValue, date);
-                eventsList.add(event);
-               // String size = String.valueOf(eventsList.get(0).titleVal);
-               // Toast.makeText(getContext(), size, Toast.LENGTH_SHORT).show();
-               // eventAdapter = new EventAdapter(Objects.requireNonNull(getContext()).getApplicationContext(), eventsList);
-                //lw.setAdapter(eventAdapter);
-                //Toast.makeText(getContext(), events.size(), Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getContext(), "No events", Toast.LENGTH_LONG).show();
-            }
-        }
-        String size = String.valueOf(eventsList.size());
-       // eventAdapter = new EventAdapter(Objects.requireNonNull(getContext()).getApplicationContext(), eventsList);
-        //lw.setAdapter(eventAdapter);
-        Toast.makeText(getContext(), size, Toast.LENGTH_SHORT).show();
-      /* calendarViewModel.getText().observe(Objects.requireNonNull(this), new Observer<ArrayList>() {
-            @Override
-            @NonNull
-            public void onChanged(ArrayList arrayList)  {
-                eventAdapter = new EventAdapter(Objects.requireNonNull(getContext()).getApplicationContext(), arrayList);
-                lw.setAdapter(eventAdapter);
-            }
-        });*/
     }
+
 
 
     private void requestCalPermission() {
@@ -284,6 +160,7 @@ public class CalendarFragment extends Fragment {
                  @Override
                  public void onClick(DialogInterface dialogInterface, int i) {
                      ActivityCompat.requestPermissions(Objects.requireNonNull(getActivity()), new String[] {Manifest.permission.READ_CALENDAR}, CALENDAR_PERMISSION_CODE);
+                     Toast.makeText(getContext(), "Thank you!", Toast.LENGTH_LONG).show();
                  }
              })
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -291,7 +168,7 @@ public class CalendarFragment extends Fragment {
                         public void onClick(DialogInterface dialogInterface, int i) {
                              dialogInterface.dismiss();
                             Toast.makeText(getContext(), "Permission is not granted", Toast.LENGTH_LONG).show();
-                            ActivityCompat.requestPermissions(Objects.requireNonNull(getActivity()), new String[] {Manifest.permission.READ_CALENDAR}, getTargetRequestCode());
+
                         }
                     })
                     .create().show();
@@ -304,16 +181,5 @@ public class CalendarFragment extends Fragment {
 
 }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == CALENDAR_PERMISSION_CODE) {
-            if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(getContext(), "Thank you!", Toast.LENGTH_LONG).show();
-            }
-            else{
-                Toast.makeText(getContext(), "Permission is not granted", Toast.LENGTH_LONG).show();
-            }
-        }
-    }
+
 }

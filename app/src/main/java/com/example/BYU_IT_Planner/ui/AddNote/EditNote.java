@@ -14,7 +14,7 @@ public class EditNote extends AppCompatActivity {
 
     private EditText titleEditText, descEditText, labelText, codeText;
     //private AddNoteFragment addNoteFragment = new AddNoteFragment();
-    private int id;
+    private long id;
 
 
     @Override
@@ -36,7 +36,7 @@ public class EditNote extends AppCompatActivity {
             labelText.setText(intent.getStringExtra("label"));
             descEditText.setText(intent.getStringExtra("description"));
             codeText.setText(intent.getStringExtra("code"));
-            id = intent.getIntExtra("id", 0);
+            id = intent.getLongExtra("id", 0);
         }
         else{
             titleEditText = findViewById(R.id.title);
@@ -52,7 +52,7 @@ public class EditNote extends AppCompatActivity {
         String description =  descEditText.getText().toString().trim();
         String label =  labelText.getText().toString().trim();
         String code = codeText.getText().toString().trim();
-        int newId = id;
+        long newId = id;
 
 
         //TODO: get note id
@@ -60,8 +60,17 @@ public class EditNote extends AppCompatActivity {
 
         //TODO: create an instance of a new note and add to a list
 
-        Note note = new Note(newId, title, description, label, code);
-        App.getInstance().getNoteDao().update(note);
+                Note note = new Note(newId, title, description, label, code);
+
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                App.getInstance().getNoteDao().update(note);
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
 
         //Note.noteList.add(note);
 

@@ -1,14 +1,17 @@
 package com.example.BYU_IT_Planner.ui.AddNote;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.BYU_IT_Planner.App;
 
+import java.util.List;
+
 public class SearcnableActivity extends AppCompatActivity {
+    AddNoteFragment addNoteFragment = new AddNoteFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,8 @@ public class SearcnableActivity extends AppCompatActivity {
     }
 
     private void doSearch(String query) {
-        App.getInstance().getNoteDao().findByTitle(query,query,query,query);
+        List<Note> noteList = App.getInstance().getNoteDao().findByTitle(query);
+        AddNoteFragment.noteAdapter.notifyDataSetChanged();
 
     }
 }

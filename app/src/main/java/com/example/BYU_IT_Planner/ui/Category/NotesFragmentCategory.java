@@ -10,25 +10,25 @@ public class NotesFragmentCategory  {
     private String description;
     private String label;
     private String code;
-    private int id;
+  //  private int id;
 
 
 
-    public NotesFragmentCategory(String title, String description, String label, String code, int id) {
+    public NotesFragmentCategory(String title, String description, String label, String code) {
         this.title = title;
         this.description = description;
         this.label = label;
         this.code = code;
-        this.id = id;
+      //  this.id = id;
     }
 
-    public int getId() {
-        return id;
-    }
+  //  public int getId() {
+    //    return id;
+    //}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+   // public void setId(int id) {
+   //     this.id = id;
+    //}
 
     public String getCode() {
         return code;

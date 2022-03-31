@@ -1,5 +1,6 @@
 package com.example.BYU_IT_Planner.DataBase;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -20,12 +21,12 @@ public interface NoteDao {
     @Query("SELECT * FROM note")
     LiveData<List<Note>> getAllLiveData();
 
-    @Query("SELECT * FROM note WHERE id IN(:noteIds)")
-    List<Note> loadAllByIds(int[] noteIds);
+    @NonNull
+    @Query("SELECT * FROM note WHERE id = :id")
+    Note getId(int id);
 
-    @Query("SELECT * FROM note WHERE title MATCH :title AND " + "label LIKE :label AND "+
-            "description LIKE :description AND " + "code LIKE :code")
-    Note findByTitle(String title, String label, String description, String code);
+    @Query("SELECT * FROM note WHERE title LIKE :title")
+    List<Note> findByTitle(String title);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Note note);

@@ -16,6 +16,9 @@ public class AddNoteViewModel extends ViewModel {
 
     private MutableLiveData<ArrayList> mText;
 
+
+
+
     private LiveData<List<Note>> noteLiveData = App.getInstance().getNoteDao().getAllLiveData();
 
 

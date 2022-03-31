@@ -1,5 +1,6 @@
 package com.example.BYU_IT_Planner.ui.AddNote;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ public class TestNoteActivity extends AppCompatActivity {
 
     private EditText titleEditText, descEditText, labelText, codeText;
     private AddNoteFragment addNoteFragment = new AddNoteFragment();
+    Intent intent;
+
 
 
 
@@ -23,7 +26,9 @@ public class TestNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_note);
         //Objects.requireNonNull(getSupportActionBar()).hide();
+        intent = getIntent();
         initWidgets();
+
     }
 
 
@@ -43,14 +48,29 @@ public class TestNoteActivity extends AppCompatActivity {
         String label =  labelText.getText().toString().trim();
         String code = codeText.getText().toString().trim();
 
-        List<Note> noteList = App.getInstance().getNoteDao().getAll();
-        //TODO: get note id
-        int id = noteList.size();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                List<Note> noteList = App.getInstance().getNoteDao().getAll();
+                Note note = new Note( title, description, label, code);
+                App.getInstance().getNoteDao().insert(note);
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
 
-        //TODO: create an instance of a new note and add to a list
-        
-        Note note = new Note(id, title, description, label, code);
-        App.getInstance().getNoteDao().insert(note);
+
+
+       // List<Note> noteList = App.getInstance().getNoteDao().getAll();
+
+
+
+       // Note note = new Note( title, description, label, code);
+
+
+       // App.getInstance().getNoteDao().insert(note);
+        finish();
+
 
 
             //Note.noteList.add(note);
@@ -63,8 +83,9 @@ public class TestNoteActivity extends AppCompatActivity {
 
 
         //TODO: finish the activity
-        finish();
+
 
     }
+
 
 }

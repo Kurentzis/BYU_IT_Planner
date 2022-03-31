@@ -64,9 +64,21 @@ public class ObserveNote extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         //arrayList.get(positionToRemove);
                         //Note.noteList.remove(positionToRemove);
-                        List<Note> noteList = App.getInstance().getNoteDao().getAll();
+                        Runnable runnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                List<Note> noteList = App.getInstance().getNoteDao().getAll();
 
-                        App.getInstance().getNoteDao().delete(noteList.get(positionToRemove));
+                                App.getInstance().getNoteDao().delete(noteList.get(positionToRemove));
+                            }
+                        };
+                        Thread thread = new Thread(runnable);
+                        thread.start();
+
+
+
+
+
                         finish();
                     }
                 });

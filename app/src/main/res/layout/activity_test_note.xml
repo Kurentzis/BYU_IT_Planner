@@ -57,7 +57,7 @@
                 android:layout_marginTop="30sp"
                 android:textColorHint="@color/white"
                 app:counterEnabled="true"
-                app:counterMaxLength="20"
+                app:counterMaxLength="25"
                 app:helperText="What is the subject of this note?"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/teal_700"
@@ -78,7 +78,7 @@
                 android:layout_marginTop="30sp"
                 android:textColorHint="@color/white"
                 app:counterEnabled="true"
-                app:counterMaxLength="20"
+                app:counterMaxLength="25"
                 app:helperText="What is the subject related to? Any framework or library?"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/teal_700">
@@ -118,7 +118,7 @@
                 android:backgroundTint="@color/teal_700"
                 android:textColorHint="@color/white"
 
-                app:helperText="Attention: to paste code use you buffer panel to keep code formatting! "
+                app:helperText="Attention: to paste code use your buffer panel to keep code formatting! "
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/teal_700"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">

@@ -51,13 +51,14 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:helperText="What is the subject of this note?"
                 app:helperTextEnabled="true"
                 app:counterEnabled="true"
-                app:counterMaxLength="20"
+                app:counterMaxLength="25"
                 android:textColorHint="@color/white"
                 app:helperTextTextColor="@color/teal_700"
                 >
@@ -66,20 +67,21 @@
                     android:id="@+id/newTitle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/darkGray"
+                    android:hint="Enter title..."
                     android:textColor="@color/white"
-                    android:hint="Title"
+                    android:background="@color/darkGray"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:helperText="What is the subject related to? Any framework, library, or programming language?"
                 app:helperTextEnabled="true"
                 app:counterEnabled="true"
-                app:counterMaxLength="20"
+                app:counterMaxLength="25"
                 android:textColorHint="@color/white"
                 app:helperTextTextColor="@color/teal_700"
                 >
@@ -88,13 +90,14 @@
                     android:id="@+id/newLabel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Category"
-                    android:background="@color/darkGray"
+                    android:hint="Enter category..."
                     android:textColor="@color/white"
+                    android:background="@color/darkGray"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,29 +110,35 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/newDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Description"
-                    android:background="@color/darkGray"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter description..."
+                    android:minLines="3"
                     android:textColor="@color/white"
+                    android:background="@color/darkGray"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="30sp"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:helperText="Describe your subject"
-                app:helperTextEnabled="true"
+                android:layout_marginTop="30sp"
+                android:backgroundTint="@color/teal_700"
                 android:textColorHint="@color/white"
+
+                app:helperText="Attention: to paste code use your buffer panel to keep code formatting! "
+                app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/teal_700"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/newCode"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Code"
-                    android:background="@color/darkGray"
+                    android:hint="Type in code example or pseudo-code..."
+
+                    android:lines="10"
                     android:textColor="@color/white"
                     />
             </com.google.android.material.textfield.TextInputLayout>

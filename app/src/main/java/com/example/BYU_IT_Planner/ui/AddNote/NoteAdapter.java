@@ -36,7 +36,7 @@ public class NoteAdapter extends ArrayAdapter<Note> {
 
         Note note = getItem(position);
 
-        pos = note.getId();
+      //  pos = note.getId();
 
         if (convertView==null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.note_cell, parent, false);
@@ -64,8 +64,9 @@ public class NoteAdapter extends ArrayAdapter<Note> {
                 intent.putExtra("title", note.getTitle());
                 intent.putExtra("label", note.getLabel());
                 intent.putExtra("description", note.getDescription());
-                intent.putExtra("id", note.getId());
+              //  intent.putExtra("id", note.getId());
                 intent.putExtra("code", note.getCode());
+                intent.putExtra("id" , note.getId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getContext().getApplicationContext().startActivity(intent);
 

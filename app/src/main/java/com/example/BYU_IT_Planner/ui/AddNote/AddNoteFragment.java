@@ -28,11 +28,12 @@ import java.util.Objects;
 
 
 public class AddNoteFragment extends Fragment {
-    private static NoteAdapter noteAdapter;
-    private ListView lw;
+    public static NoteAdapter noteAdapter;
+    public ListView lw;
     private View v;
     private AddNoteViewModel addNoteViewModel;
     private SearchView sv;
+
 
 
 
@@ -46,6 +47,8 @@ public class AddNoteFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_addnote, container, false);
         lw = v.findViewById(R.id.listViewForNotes);
 
+        sv = v.findViewById(R.id.search);
+
 
         Button button =  v.findViewById(R.id.buttonAddNote);
         addNoteViewModel = new ViewModelProvider(requireActivity()).get(AddNoteViewModel.class);
@@ -56,7 +59,8 @@ public class AddNoteFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), TestNoteActivity.class);
-                AddNoteFragment.this.startActivity(intent);
+               AddNoteFragment.this.startActivity(intent);
+
             }
         });
 
@@ -65,6 +69,7 @@ public class AddNoteFragment extends Fragment {
 
         return v;
     }
+
 
 
 
@@ -90,13 +95,27 @@ public class AddNoteFragment extends Fragment {
                         adb.setTitle("Delete?");
                         final int positionToRemove = position;
                         adb.setMessage("Are you sure you want to delete " + noteAdapter.getItem(positionToRemove).getTitle());
+
                         adb.setNegativeButton("Cancel", null);
                         adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 //arrayList.get(positionToRemove);
                                 //arrayList.remove(positionToRemove);
-                                App.getInstance().getNoteDao().delete(arrayList.get(positionToRemove));
-                                //noteAdapter.notifyDataSetChanged();
+
+                                        //Completable.fromAction(() -> App.getInstance().getNoteDao().delete(arrayList.get(positionToRemove))).subscribe();
+                                Runnable runnable = new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        App.getInstance().getNoteDao().delete(arrayList.get(positionToRemove));
+                                    }
+                                };
+                                Thread thread = new Thread(runnable);
+                                thread.start();
+
+
+
+
+                                noteAdapter.notifyDataSetChanged();
                             }
                         });
                         adb.show();
@@ -119,11 +138,57 @@ public class AddNoteFragment extends Fragment {
 
 
 
+                sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+
+                        Runnable r = new Runnable() {
+                            @Override
+                            public void run() {
+                                String query = sv.getQuery().toString().trim();
+                                List<Note> noteList = App.getInstance().getNoteDao().findByTitle(query);
+                                noteAdapter = new NoteAdapter(Objects.requireNonNull(getContext()).getApplicationContext(), noteList);
+
+
+                            }
+                        };
+                        Thread thread = new Thread(r);
+                        thread.start();
+                        lw.setAdapter(noteAdapter);
+                        /* AddNoteFragment.noteAdapter.notifyDataSetChanged();
+                        Intent intent = new Intent(Intent.ACTION_SEARCH);
+                        intent.putExtra("query", newText);
+                        startActivity(intent);*/
+                        return true;
+                    }
+                });
+
+
+                /*sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        Intent intent = new Intent(Intent.ACTION_SEARCH);
+                        intent.putExtra("query", newText);
+                        startActivity(intent);
+                        return true;
+                    }
+                });*/
+
+
 
             }
         });
     }
-
 
 
 }
